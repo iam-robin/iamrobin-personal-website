@@ -1,0 +1,52 @@
+module.exports = {
+    content: [
+        "./pages/**/*.{js,ts,jsx,tsx}",
+        "./components/**/*.{js,ts,jsx,tsx}",
+    ],
+    theme: {
+        colors: {
+            transparent: 'transparent',
+            'white': '#fff',
+            'grey': {
+              100: '#F5F5F6',
+              200: 'tomato',
+              300: '#797A7B',
+            },
+        },
+        screens: {
+            'sm': '640px',
+            'md': '800px',
+            'mdWithMargin': '880px',
+            'lg': '1024px',
+            'xl': '1264px',
+            'xlWithMargin': '1344px',
+        },
+        spacing: {
+            '1': '4px',
+            '2': '8px',
+            '3': '12px',
+            '4': '16px',
+            '5': '20px',
+            '6': '24px',
+            '7': '28px',
+            '8': '32px',
+            '9': '36px',
+            '10': '40px',
+            '11': '44px',
+            '12': '48px',
+            '11': '52px',
+            '14': '56px',
+            '15': '60px',
+            '16': '64px',
+            '17': '68px',
+            '18': '72px',
+            '19': '76px',
+            '20': '80px',
+        },
+        boxShadow: {
+          'book': 'inset 4px 1px 3px #ffffff60, inset 0 -1px 2px #00000080;',
+        },
+        extend: {},
+    },
+    plugins: [],
+}
