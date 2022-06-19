@@ -31,9 +31,9 @@ const Photos = ({ photoData }) => {
                 alt={photo?.title || 'photo'}
                 width="800"
                 height={photo?.height}
-                layout="responsive"
-                placeholder="blur"
-                blurDataURL={photo?.placeholder?.base64}
+                // layout="responsive"
+                // placeholder="blur"
+                // blurDataURL={photo?.placeholder?.base64}
               />
             </div>
           ))
@@ -64,13 +64,13 @@ export async function getStaticProps() {
     }
   })
 
-  const photoData = await Promise.all(photosQuery.results.map(async (photo) => ({
+  const photoData = photosQuery.results.map( (photo) => ({
     id: photo.id,
     title: photo.properties.Name.title[0]?.plain_text || null,
     height: photo.properties.height.number,
     imageUrl: photo.properties.photo.files[0]?.file?.url || photo.properties.photo.files[0]?.name || null,
-    placeholder: await getPlaiceholder(photo.properties.photo.files[0]?.file?.url || photo.properties.photo.files[0]?.name || null, { size: 20 }),
-  })));
+    // placeholder: await getPlaiceholder(photo.properties.photo.files[0]?.file?.url || photo.properties.photo.files[0]?.name || null, { size: 20 }),
+  }));
 
   return {
     props: {
