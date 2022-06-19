@@ -1,7 +1,6 @@
 import { Client } from '@notionhq/client'
 import Masonry from 'react-masonry-css'
 import Image from 'next/image';
-import { getPlaiceholder } from 'plaiceholder';
 import TextLink from "../components/TextLink";
 
 const Photos = ({ photoData }) => {
