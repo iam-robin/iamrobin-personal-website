@@ -16,24 +16,24 @@ const Changelog = () => {
             <div>
               <p className="mt-2 font-medium text-sm">Used tools</p>
               <ul className="mt-1 list-inside list-disc text-sm">
-                <li class="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />VS Code</li>
-                <li class="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Figma</li>
-                <li class="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Notion</li>
+                <li className="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />VS Code</li>
+                <li className="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Figma</li>
+                <li className="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Notion</li>
               </ul>
             </div>
             <div>
               <p className="mt-2 font-medium text-sm">Tech stack</p>
               <ul className="mt-1 list-inside list-disc text-sm">
-                <li class="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Next.js</li>
-                <li class="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Typescript</li>
-                <li class="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Tailwind</li>
+                <li className="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Next.js</li>
+                <li className="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Typescript</li>
+                <li className="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Tailwind</li>
               </ul>
             </div>
             <div>
               <p className="mt-2 font-medium text-sm">Hosting</p>
               <ul className="mt-1 list-inside list-disc text-sm">
-                <li class="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Github</li>
-                <li class="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Netlify</li>
+                <li className="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Github</li>
+                <li className="flex items-center"><ArrowSmRightIcon className="h-4 w-4 mr-1 text-grey-300 dark:text-grey-500" />Netlify</li>
               </ul>
             </div>
           </div>
