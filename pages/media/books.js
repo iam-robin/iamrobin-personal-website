@@ -1,17 +1,60 @@
 import { Client } from '@notionhq/client'
+import clsx from 'clsx';
 import BookItem from "../../components/BookItem";
+import TextLink from "../../components/TextLink";
 
 const Books = ({ books }) => {
+  const booksSortedByYear = books.reduce((acc, current) => {
+    if (current.year in acc) {
+      acc[current.year].push(current);
+    } else {
+      acc[current.year] = [current];
+    }
+    return acc;
+  }, {});
+
+
   return (
-    <>
-      <div className="grid grid-cols-5 gap-12">
-        {
-          books.map((book, i) => (
-            <BookItem key={i} image={book.cover} title={book.title} />
-          ))
-        }
-      </div>
-    </>
+    <div>
+      <h1 className="text-2xl">Bookshelf</h1>
+        <p className="mt-2">
+          I would like to read more books. Keeping a list of all the books I&apos;ve read and enjoyed will hopefully help me do that. Each book links to its corresponding page on <TextLink src="https://literal.club/" external>Literal</TextLink>.
+        </p>
+      {
+        Object.entries(booksSortedByYear).reverse().map(([key, value]) => {
+          return (
+            <div key={key} className="mb-20 relative">
+              <h2 className={clsx(
+                'mt-24 mb-12 text-grey-300 text-lg font-medium text-center',
+                'after:content-[""] after:bg-grey-200 after:h-[1px] after:w-full after:absolute after:left-[0px] after:top-[15px]',
+                'dark:after:bg-grey-500 dark:text-grey-400'
+              )}>
+                <span className='bg-grey-100 px-4 z-10 relative dark:bg-black'>
+                  {key}
+                </span>
+              </h2>
+              <div className={clsx(
+                "grid grid-cols-2 gap-16",
+                "xs:grid-cols-3",
+                "sm:grid-cols-4",
+              )}>
+                {value.map((book, i) => {
+                  return <BookItem
+                    key={i}
+                    image={book.cover}
+                    title={book.title}
+                    author={book.author}
+                    genre={book.genre}
+                    color={book.color}
+                    url={book.url}
+                  />
+                })}
+              </div>
+            </div>
+          )
+        })
+      }
+    </div>
   )
 };
 
@@ -32,20 +75,21 @@ export const getStaticProps = async () => {
     ],
     filter: {
       "and": [
-        { "or": [
-          {
-            property: "type",
-            select: {
-              equals: "Book"
-            }
-          },
-          {
-            property: "type",
-            select: {
-              equals: "Audiobook"
-            }
-          },
-        ]
+        {
+          "or": [
+            {
+              property: "type",
+              select: {
+                equals: "Book"
+              }
+            },
+            {
+              property: "type",
+              select: {
+                equals: "Audiobook"
+              }
+            },
+          ]
         },
         {
           property: "rating",
@@ -60,8 +104,12 @@ export const getStaticProps = async () => {
   const books = booksQuery.results.map(book => ({
     id: book.id,
     title: book.properties.Name.title[0].plain_text,
+    author: book.properties.author.select.name,
+    genre: book.properties.genre.multi_select,
     url: book.properties.URL.url,
     cover: book.properties.cover.files[0]?.file?.url || book.properties.cover.files[0]?.name,
+    color: book.properties.placeholdercolor.rich_text[0].plain_text,
+    year: new Date(book.properties.finished.date.start).getFullYear(),
   }));
 
   return {

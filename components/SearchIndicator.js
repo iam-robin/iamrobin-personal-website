@@ -1,18 +1,37 @@
-import SearchIcon from '../public/img/search.svg';
-import CommandIcon from '../public/img/command.svg';
+import HotKey from "./HotKey";
+import { useKBar, VisualState } from "kbar";
+import clsx from "clsx";
+import { SearchIcon } from '@heroicons/react/outline';
 
 const SearchIndicator = () => {
-    return (
-        <div className='flex items-center cursor-pointer'>
-            <span className='flex items-center justify-center bg-grey-100 h-6 w-6 rounded'>
-                <CommandIcon />
-            </span>
-            <span className='flex items-center justify-center bg-grey-100 text-grey-300 h-6 w-6 rounded ml-1 text-[12px] font-bold'>
-                K
-            </span>
-            <SearchIcon className='ml-2' />
-        </div>
-    );
+  const { query } = useKBar();
+  return (
+    <div
+      className='flex items-center cursor-pointer'
+      onClick={() =>
+        query.setVisualState((vs) =>
+          [VisualState.animatingOut, VisualState.hidden].includes(vs)
+            ? VisualState.animatingIn
+            : VisualState.animatingOut
+        )
+      }
+    >
+      <ul className={clsx(
+        "space-x-1 hidden",
+        "sm:flex"
+      )}>
+        <li><HotKey text="⌘"/></li>
+        <li><HotKey text="k"/></li>
+      </ul>
+      <SearchIcon
+        className={clsx(
+          'h-7 w-7 ml-2 stroke-grey-600',
+          'dark:stroke-grey-300',
+          'sm:h-4 sm:w-4'
+        )}
+      />
+    </div>
+  );
 }
 
 export default SearchIndicator;

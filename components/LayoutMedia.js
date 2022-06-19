@@ -1,7 +1,9 @@
 import Header from "./Header";
-import Link from 'next/link';
+import Footer from "./Footer";
+import TextLink from "./TextLink";
 import { useRouter } from "next/router";
 import { useState, useEffect } from 'react';
+import clsx from "clsx";
 
 const getActiveMedia = (router) => {
   return router.pathname.split('/')[2];
@@ -22,22 +24,31 @@ const LayoutMedia = ({ children }) => {
   }
 
   return (
-    <div className="mx-6 sm:mx-10 mdWithMargin:mx-auto mt-10 max-w-screen-md">
+    <div className={
+      clsx("mx-6 pt-4 sm:mx-10 mdWithMargin:mx-auto max-w-screen-md",
+      "sm:pt-20"
+    )}>
       <Header />
-      <br />
-      <ul>
-        {mediaPages.map((mediaPage, i) => (
-          <Link href={'/media/' + mediaPage} key={i}>
-            <a
-              onClick={handleLinkClicked}
-              className={"p-1 mx-2 inline-block " + (activeRoute == mediaPage ? 'border-b-2 border-grey-200' : '')}
-            >{mediaPage}</a>
-          </Link>
-        ))}
-      </ul>
-      <main className="mt-20">
+      <main className={clsx(
+        "mt-8",
+        "sm:mt-20"
+      )}>
+        {/* <h1 className="text-2xl">{activeRoute}</h1> */}
+        {/* <ul className="mt-20">
+          {mediaPages.map((mediaPage, i) => (
+            <Link href={'/media/' + mediaPage} key={i}>
+              <a
+                onClick={handleLinkClicked}
+                className={"text-sm mr-4 inline-block text-grey-200" + (activeRoute == mediaPage ? 'font-bold' : '')}
+              >{mediaPage}</a>
+            </Link>
+          ))}
+        </ul> */}
         {children}
       </main>
+      <div className="mt-auto">
+        <Footer />
+      </div>
     </div>
   );
 }
