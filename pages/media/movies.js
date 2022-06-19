@@ -2,17 +2,30 @@ import { Client } from '@notionhq/client'
 import MediaItem from "../../components/MediaItem";
 
 const Movies = ({ movies }) => {
+  const moviesSortedByYear = movies.reduce((acc, current) => {
+    if (current.year in acc) {
+      acc[current.year].push(current);
+    } else {
+      acc[current.year] = [current];
+    }
+    return acc;
+  }, {});
   return (
     <>
-      <h1>movies</h1>
-      <br />
-      <div className="grid grid-cols-5 gap-8">
-        {
-          movies.map((movie, i) => (
-            <MediaItem key={i} image={movie.cover} title={movie.title} />
-          ))
-        }
-      </div>
+      {
+        Object.entries(moviesSortedByYear).reverse().map(([key, value]) => {
+          return (
+            <div key={key} className="mb-20">
+              <h2 className="mb-4 text-xs text-grey-200">{key}</h2>
+              <div className="grid grid-cols-5 gap-12">
+                {value.map((movie, i) => {
+                  return <MediaItem key={i} image={movie.cover} title={movie.title} />
+                })}
+              </div>
+            </div>
+          )
+        })
+      }
     </>
   )
 };
@@ -53,6 +66,7 @@ export const getStaticProps = async () => {
     title: movie.properties.Name.title[0].plain_text,
     url: movie.properties.URL.url,
     cover: movie.properties.cover.files[0]?.file?.url || movie.properties.cover.files[0]?.name,
+    year: new Date(movie.properties.finished.date.start).getFullYear(),
   }));
 
   return {
