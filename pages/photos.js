@@ -2,9 +2,11 @@ import { Client } from '@notionhq/client'
 import Masonry from 'react-masonry-css'
 import Image from 'next/image';
 import TextLink from "../components/TextLink";
+import { useTheme } from 'next-themes';
 
 const Photos = ({ photoData }) => {
 
+  const { theme } = useTheme();
   const breakpointColumnsObj = {
     default: 3,
     1280: 3,
@@ -24,15 +26,16 @@ const Photos = ({ photoData }) => {
         columnClassName="my-masonry-grid_column">
         {
           photoData.map(photo => (
-            <div className='mb-14 bg-grey-100' key={photo?.id}>
+            <div
+              className='mb-14 bg-grey-200 dark:bg-grey-600'
+              style={theme === "light" ? {boxShadow:"inset 0px -5px 0px 5px #F7F7F7"} : {boxShadow:"inset 0px -5px 0px 5px #111111"}}
+              key={photo?.id}
+            >
               <Image
                 src={photo?.imageUrl}
                 alt={photo?.title || 'photo'}
                 width="800"
                 height={photo?.height}
-                // layout="responsive"
-                // placeholder="blur"
-                // blurDataURL={photo?.placeholder?.base64}
               />
             </div>
           ))
