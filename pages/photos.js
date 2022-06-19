@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { getPlaiceholder } from 'plaiceholder';
 import TextLink from "../components/TextLink";
 
-const Photos = ({ photos }) => {
+const Photos = ({ photoData }) => {
 
   const breakpointColumnsObj = {
     default: 3,
@@ -24,7 +24,7 @@ const Photos = ({ photos }) => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column">
         {
-          photos.map(photo => (
+          photoData.map(photo => (
             <div className='mb-14 bg-grey-100' key={photo?.id}>
               <Image
                 src={photo?.imageUrl}
@@ -64,7 +64,7 @@ export async function getStaticProps() {
     }
   })
 
-  const photos = await Promise.all(photosQuery.results.map(async (photo) => ({
+  const photoData = await Promise.all(photosQuery.results.map(async (photo) => ({
     id: photo.id,
     title: photo.properties.Name.title[0]?.plain_text || null,
     height: photo.properties.height.number,
@@ -74,7 +74,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      photos,
+      photoData: photoData,
     },
     revalidate: 60,
   }
