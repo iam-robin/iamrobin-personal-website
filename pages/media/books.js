@@ -34,7 +34,8 @@ const Books = ({ books }) => {
                 </span>
               </h2>
               <div className={clsx(
-                "grid grid-cols-2 gap-16",
+                "grid grid-cols-1 gap-x-3 gap-y-12",
+                "xxs:grid-cols-2",
                 "xs:grid-cols-3",
                 "sm:grid-cols-4",
               )}>

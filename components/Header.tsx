@@ -54,73 +54,78 @@ const Header: React.FC<HeaderProps> = ({ type }) => {
 
   return (
     <header
-      ref={headerRef}
       className={clsx(
-        'flex sticky py-4 z-20 top-[0] bg-grey-100 justify-between items-center',
+        'sticky z-20 top-[0] mt-4 bg-grey-100',
         'dark:bg-black',
+        'sm:mt-20'
       )}
     >
-      {type === "project"
-        ? <>
-          <Link href="/projects">
-            <a className='flex items-center'>
-              <ArrowLeftIcon className='h-5 w-5 mr-2 ' />
-              <span className='font-mono'>all projects</span>
-            </a>
-          </Link>
-          <div className='flex space-x-4'>
-            {
-              getPrevProject() ?
-                <Link href={`/projects/${getPrevProject()}`}>
-                  <a>
-                    <ChevronLeftIcon className='h-5 w-5' />
-                  </a>
-                </Link>
-                :
-                <ChevronLeftIcon className='h-5 w-5 text-grey-300' />
-            }
-            {
-              getNextProject() ?
-                <Link href={`/projects/${getNextProject()}`}>
-                  <a>
-                    <ChevronRightIcon className='h-5 w-5' />
-                  </a>
-                </Link>
-                :
-                <ChevronRightIcon className='h-5 w-5 text-grey-300' />
-            }
-          </div>
-        </>
-        : <>
-          <Link href="/">
-            <div
-              ref={logoRef}
-              className={clsx(
-                "h-8 w-8 cursor-pointer",
-                "sm:h-12 sm:w-12"
-              )}
-            >
-              <Logo className={clsx(
-                'logo fill-black h-full transition-transform duration-300',
-                'dark:fill-grey-200'
-              )} />
+      <div
+        ref={headerRef}
+        className='flex justify-between items-center py-4 mx-6 mdWithMargin:mx-auto max-w-screen-md'
+      >
+        {type === "project"
+          ? <>
+            <Link href="/projects">
+              <a className='flex items-center'>
+                <ArrowLeftIcon className='h-5 w-5 mr-2 ' />
+                <span className='font-mono'>all projects</span>
+              </a>
+            </Link>
+            <div className='flex space-x-4'>
+              {
+                getPrevProject() ?
+                  <Link href={`/projects/${getPrevProject()}`}>
+                    <a>
+                      <ChevronLeftIcon className='h-5 w-5' />
+                    </a>
+                  </Link>
+                  :
+                  <ChevronLeftIcon className='h-5 w-5 text-grey-300' />
+              }
+              {
+                getNextProject() ?
+                  <Link href={`/projects/${getNextProject()}`}>
+                    <a>
+                      <ChevronRightIcon className='h-5 w-5' />
+                    </a>
+                  </Link>
+                  :
+                  <ChevronRightIcon className='h-5 w-5 text-grey-300' />
+              }
             </div>
-          </Link>
-          <div className='flex items-center'>
-            <nav className={clsx(
-              "text-base mr-6 hidden sm:block",
-            )}>
-              <ul className="list-none p-0 m-0">
-                <NavItem content="projects" route="projects" />
-                {/* <NavItem content="writing" route="writing" /> */}
-                <NavItem content="bookshelf" route="media" />
-                <NavItem content="photos" route="photos" />
-              </ul>
-            </nav>
-            <SearchIndicator />
-          </div>
-        </>
-      }
+          </>
+          : <>
+            <Link href="/">
+              <div
+                ref={logoRef}
+                className={clsx(
+                  "h-8 w-8 cursor-pointer",
+                  "sm:h-12 sm:w-12"
+                )}
+              >
+                <Logo className={clsx(
+                  'logo fill-black h-full transition-transform duration-300',
+                  'dark:fill-grey-200'
+                )} />
+              </div>
+            </Link>
+            <div className='flex items-center'>
+              <nav className={clsx(
+                "text-base mr-6 hidden sm:block",
+              )}>
+                <ul className="list-none p-0 m-0">
+                  <NavItem content="projects" route="projects" />
+                  {/* <NavItem content="writing" route="writing" /> */}
+                  <NavItem content="bookshelf" route="media" />
+                  <NavItem content="photos" route="photos" />
+                </ul>
+              </nav>
+              <SearchIndicator />
+            </div>
+          </>
+        }
+      </div>
     </header>
   );
 }
