@@ -2,8 +2,11 @@ import { Client } from '@notionhq/client'
 import clsx from 'clsx';
 import BookItem from "../../components/BookItem";
 import TextLink from "../../components/TextLink";
+import Head from "next/head";
+import { useTheme } from 'next-themes';
 
 const Books = ({ books }) => {
+  const { theme } = useTheme();
   const booksSortedByYear = books.reduce((acc, current) => {
     if (current.year in acc) {
       acc[current.year].push(current);
@@ -16,10 +19,22 @@ const Books = ({ books }) => {
 
   return (
     <div>
+      <Head>
+        <title>books - iamrobin</title>
+        <meta
+          name="description"
+          content="book overview iamrobin"
+        />
+        {
+          theme === "light"
+            ? <link rel="icon" type="image/png" sizes="32x32" href="/favicons/32x32-light.png" />
+            : <link rel="icon" type="image/png" sizes="32x32" href="/favicons/32x32-dark.png" />
+        }
+      </Head>
       <h1 className="text-2xl">Bookshelf</h1>
-        <p className="mt-2">
-          I would like to read more books. Keeping a list of all the books I&apos;ve read and enjoyed will hopefully help me do that. Each book links to its corresponding page on <TextLink src="https://literal.club/" external>Literal</TextLink>.
-        </p>
+      <p className="mt-2">
+        I would like to read more books. Keeping a list of all the books I&apos;ve read and enjoyed will hopefully help me do that. Each book links to its corresponding page on <TextLink src="https://literal.club/" external>Literal</TextLink>.
+      </p>
       {
         Object.entries(booksSortedByYear).reverse().map(([key, value]) => {
           return (
