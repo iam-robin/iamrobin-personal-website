@@ -3,9 +3,9 @@ import Masonry from 'react-masonry-css'
 import Image from 'next/image';
 import TextLink from "../components/TextLink";
 import { useTheme } from 'next-themes';
+import Head from "next/head";
 
 const Photos = ({ photoData }) => {
-
   const { theme } = useTheme();
   const breakpointColumnsObj = {
     default: 3,
@@ -16,6 +16,18 @@ const Photos = ({ photoData }) => {
 
   return (
     <div>
+      <Head>
+        <title>photos - iamrobin</title>
+        <meta
+          name="description"
+          content="Photography gallery iamrobin"
+        />
+        {
+          theme === "light"
+            ? <link rel="icon" type="image/png" sizes="32x32" href="/favicons/32x32-light.png" />
+            : <link rel="icon" type="image/png" sizes="32x32" href="/favicons/32x32-dark.png" />
+        }
+      </Head>
       <div className='mx-auto max-w-screen-md'>
         <h1 className="text-2xl">Photography</h1>
         <p className="mt-2">
@@ -70,7 +82,7 @@ export async function getStaticProps() {
     }
   })
 
-  const photoData = photosQuery.results.map( (photo) => ({
+  const photoData = photosQuery.results.map((photo) => ({
     id: photo.id,
     title: photo.properties.Name.title[0]?.plain_text || null,
     height: photo.properties.height.number,

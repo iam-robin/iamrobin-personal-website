@@ -17,7 +17,7 @@ const MarkerLink = (props) => {
       padding={props.type === "circle" ? [16,10] : 2}
       animationDelay={props.delay}
       multiline={true}
-      className={props.type === "circle" ? "mx-3": "mx-2"}
+      className={props.type === "circle" ? "mx-3": ""}
     >
       <span>
         {props.text}

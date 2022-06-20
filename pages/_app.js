@@ -5,6 +5,7 @@ import LayoutMedia from "../components/LayoutMedia";
 import LayoutProject from "../components/LayoutProject";
 import CommandBar from '../components/CommandBar';
 import { ThemeProvider } from "next-themes";
+import Head from "next/head";
 
 const layouts = {
   LayoutDefault: Layout,
@@ -18,6 +19,13 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ThemeProvider attribute="class">
+      <Head>
+        <title>iamrobin</title>
+        <meta charset="UTF-8" />
+        <meta name="keywords" content="iamrobin portfolio robin spielmann" />
+        <meta name="author" content="Robin Spielmann" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <CommandBar>
         <LayoutProvider>
           <Component {...pageProps} />
