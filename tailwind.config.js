@@ -107,10 +107,12 @@ module.exports = {
       '39': '156px',
       '40': '160px',
     },
-    boxShadow: {
-      'book': 'inset 4px 1px 3px #ffffff60, inset 0 -1px 2px #00000080;',
+    extend: {
+      boxShadow: {
+        'inset-light': 'inset 0px -5px 0px 5px #F7F7F7',
+        'inset-dark': 'inset 0px -5px 0px 5px #111111',
+      }
     },
-    extend: {},
   },
   plugins: [],
 }

@@ -27,8 +27,7 @@ const Photos = ({ photoData }) => {
         {
           photoData.map(photo => (
             <div
-              className='mb-14 bg-grey-200 dark:bg-grey-600'
-              style={theme === "light" ? {boxShadow:"inset 0px -5px 0px 5px #F7F7F7"} : {boxShadow:"inset 0px -5px 0px 5px #111111"}}
+              className='mb-14 bg-grey-200 shadow-inset-light dark:shadow-inset-dark dark:bg-grey-600'
               key={photo?.id}
             >
               <Image
@@ -71,7 +70,6 @@ export async function getStaticProps() {
     title: photo.properties.Name.title[0]?.plain_text || null,
     height: photo.properties.height.number,
     imageUrl: photo.properties.photo.files[0]?.file?.url || photo.properties.photo.files[0]?.name || null,
-    // placeholder: await getPlaiceholder(photo.properties.photo.files[0]?.file?.url || photo.properties.photo.files[0]?.name || null, { size: 20 }),
   }));
 
   return {
