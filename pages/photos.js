@@ -16,10 +16,15 @@ const Photos = ({ photoData }) => {
 
   return (
     <div>
-      <h1 className="text-2xl">Photography</h1>
-      <p className="mt-2 mb-20 max-w-3xl">
-        For over 10 years I find a great pleasure in capturing visual impressions and aesthetically appearing moments with a camera. My companion for this is a Canon eos 5d mark III in combination with prime lenses (50mm & 85mm). <br /><br /> If you like my photos and want to support my passion feel free to <TextLink src="mailto:hey@iamrob.in">contact me</TextLink> and get a high quality print of one of my shots.
-      </p>
+      <div className='mx-auto max-w-screen-md'>
+        <h1 className="text-2xl">Photography</h1>
+        <p className="mt-2">
+          For over 10 years I find a great pleasure in capturing visual impressions and aesthetically appearing moments with a camera. I mainly use a Canon eos 5d mark III with prime lenses (50mm & 85mm).
+        </p>
+        <p className='mt-2 mb-20 sm:mb-40'>
+          If you want to support my passion feel free to <TextLink src="mailto:hey@iamrob.in">contact me</TextLink> and get a high quality print of one of my shots.
+        </p>
+      </div>
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"

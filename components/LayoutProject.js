@@ -5,8 +5,7 @@ import clsx from "clsx";
 const LayoutProject = ({ children }) => {
     return (
         <div className={clsx(
-          "flex flex-col mx-6 pt-4 min-h-screen sm:mx-10 mdWithMargin:mx-auto max-w-screen-md",
-          "sm:pt-20"
+          "flex flex-col mx-6 min-h-screen sm:mx-10 mdWithMargin:mx-auto max-w-screen-md",
         )}>
             <Header type="project" />
             <main className="mt-16">

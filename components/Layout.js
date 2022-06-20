@@ -4,21 +4,22 @@ import clsx from "clsx";
 
 const Layout = ({ children }) => {
   return (
-    <div className={clsx(
-      "flex flex-col mx-6 pt-4 min-h-screen sm:mx-10 mdWithMargin:mx-auto max-w-screen-md",
-      "sm:pt-20"
-    )}>
+    <>
       <Header />
-      <main className={clsx(
-        "mt-8",
-        "sm:mt-20"
+      <div className={clsx(
+        "flex flex-col mx-6 min-h-[calc(100vh-80px)] sm:min-h-[calc(100vh-160px)] sm:mx-10 mdWithMargin:mx-auto max-w-screen-md",
       )}>
-        {children}
-      </main>
-      <div className="mt-auto">
-        <Footer />
+        <main className={clsx(
+          "mt-8",
+          "sm:mt-20"
+        )}>
+          {children}
+        </main>
+        <div className="mt-auto">
+          <Footer />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
