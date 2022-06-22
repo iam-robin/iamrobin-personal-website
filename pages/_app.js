@@ -25,6 +25,8 @@ function MyApp({ Component, pageProps }) {
         <meta name="keywords" content="iamrobin portfolio robin spielmann" />
         <meta name="author" content="Robin Spielmann" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script data-goatcounter="https://iamrobin.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
       </Head>
       <CommandBar>
         <LayoutProvider>
