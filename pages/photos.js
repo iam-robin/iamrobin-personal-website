@@ -61,7 +61,7 @@ const Photos = ({ photoData }) => {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const notion = new Client({
     auth: process.env.NOTION_SECRET,
   })
