@@ -92,8 +92,7 @@ export async function getStaticProps() {
   return {
     props: {
       photoData: photoData,
-    },
-    revalidate: 60,
+    }
   }
 }
 
