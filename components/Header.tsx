@@ -117,7 +117,7 @@ const Header: React.FC<HeaderProps> = ({ type }) => {
                 <ul className="list-none p-0 m-0">
                   <NavItem content="projects" route="projects" />
                   {/* <NavItem content="writing" route="writing" /> */}
-                  <NavItem content="bookshelf" route="media" />
+                  <NavItem content="media" route="media" />
                   <NavItem content="photos" route="photos" />
                 </ul>
               </nav>
