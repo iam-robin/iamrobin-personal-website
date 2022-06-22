@@ -1,5 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
+import TextLink from "./TextLink";
 import { useRouter } from "next/router";
 import { useState, useEffect } from 'react';
 import clsx from "clsx";
@@ -27,11 +28,18 @@ const LayoutMedia = ({ children }) => {
       <Header />
       <div className={
         clsx("mx-6 sm:mx-10 mdWithMargin:mx-auto max-w-screen-md",
-      )}>
+        )}>
         <main className={clsx(
           "mt-8",
           "sm:mt-20"
         )}>
+          <div className="flex space-x-4">
+            <h1 className="text-2xl">books</h1>
+            <h1 className="text-2xl text-grey-300">music</h1>
+          </div>
+          <p className="mt-2">
+            I would like to read more books. Keeping a list of all the books I&apos;ve read and enjoyed will hopefully help me do that. Each book links to its corresponding page on <TextLink src="https://literal.club/" external>Literal</TextLink>.
+          </p>
           {/* <h1 className="text-2xl">{activeRoute}</h1> */}
           {/* <ul className="mt-20">
             {mediaPages.map((mediaPage, i) => (
