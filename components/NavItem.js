@@ -23,7 +23,7 @@ const NavItem = (props) => {
   return (
     <li className='inline-block mx-1 text-base'>
       <Link href={'/' + props.route}>
-        <a className='py-2 px-3 rounded inline-block font-mono'>
+        <a className={`py-2 px-3 rounded inline-block font-mono ${(activeRoute == props.route ? 'font-medium' : '')}`}>
           <RoughNotation
             type="underline"
             show={activeRoute == props.route}
