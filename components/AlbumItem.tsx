@@ -20,7 +20,7 @@ const AlbumItem: React.FC<AlbumItemProps> = (props) => {
   return (
     <a href={url} target="_blank" rel="noreferrer" className='cursor-pointer group flex flex-col'>
       <div>
-        <div className='rounded border-[1px] border-grey-200 overflow-hidden flex transition-[transform,_box-shadow] duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_10px_40px_-12px_rgba(0,0,0,0.1)] group-hover:scale-[1.03] dark:border-grey-600'>
+        <div className='rounded border-[1px] border-grey-200 bg-grey-200 overflow-hidden flex transition-[transform,_box-shadow] duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_10px_40px_-12px_rgba(0,0,0,0.1)] group-hover:scale-[1.03] dark:border-grey-600 dark:bg-grey-600'>
           <Image
             src={image.url}
             width={image.width}
