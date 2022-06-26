@@ -2,6 +2,7 @@ import { Client } from '@notionhq/client'
 import clsx from 'clsx';
 import BookItem from "../../components/BookItem";
 import TextLink from "../../components/TextLink";
+import MediaDivider from "../../components/MediaDivider";
 import Head from "next/head";
 import { useTheme } from 'next-themes';
 
@@ -31,25 +32,16 @@ const Books = ({ books }) => {
             : <link rel="icon" type="image/png" sizes="32x32" href="/favicons/32x32-dark.png" />
         }
       </Head>
-      <h1 className="text-2xl">Bookshelf</h1>
-      <p className="mt-2">
+      <p>
         I would like to read more books. Keeping a list of all the books I&apos;ve read and enjoyed will hopefully help me do that. Each book links to its corresponding page on <TextLink src="https://literal.club/" external>Literal</TextLink>.
       </p>
       {
         Object.entries(booksSortedByYear).reverse().map(([key, value]) => {
           return (
             <div key={key} className="mb-20 relative">
-              <h2 className={clsx(
-                'mt-24 mb-12 text-grey-300 text-lg font-medium text-center',
-                'after:content-[""] after:bg-grey-200 after:h-[1px] after:w-full after:absolute after:left-[0px] after:top-[15px]',
-                'dark:after:bg-grey-500 dark:text-grey-400'
-              )}>
-                <span className='bg-grey-100 px-4 z-10 relative dark:bg-black'>
-                  {key}
-                </span>
-              </h2>
+              <MediaDivider>{key}</MediaDivider>
               <div className={clsx(
-                "grid grid-cols-1 gap-x-3 gap-y-12",
+                "grid grid-cols-1 gap-x-12 gap-y-14",
                 "xxs:grid-cols-2",
                 "xs:grid-cols-3",
                 "sm:grid-cols-4",

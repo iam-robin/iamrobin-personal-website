@@ -86,11 +86,19 @@ const CommandBar = ({ children }) => {
     },
     {
       id: 'bookshelf',
-      name: 'Bookshelf',
+      name: 'Books',
       shortcut: ['n', 'b'],
       keywords: 'bookshelf reading books',
       section: 'Navigation',
       perform: () => router.push('/media/books'),
+    },
+    {
+      id: 'music',
+      name: 'Music',
+      shortcut: ['n', 'm'],
+      keywords: 'music album spotify',
+      section: 'Navigation',
+      perform: () => router.push('/media/music'),
     },
     {
       id: 'photos',

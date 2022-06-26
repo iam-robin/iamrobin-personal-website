@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { timeSince } from "../utils/timeSince";
+import { timeSince } from "../lib/timeSince";
 import { RoughNotation } from "react-rough-notation";
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../tailwind.config.js'

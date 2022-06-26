@@ -6,6 +6,13 @@ const Changelog = () => {
     <div>
       <h1 className="text-lg mb-12 font-medium">Changelog</h1>
       <ul>
+      <VersionItem
+          version="1.1.0"
+          headline="🎸 add music overview"
+          date={new Date('2022-06-26T17:06')}
+        >
+          <p>In addition to an overview of the books I&apos;ve read, there is now also an overview of my favorite music under the media tab. The data comes directly from my Spotify account and updates automatically when I add a new favorite album.</p>
+        </VersionItem>
         <VersionItem
           version="1.0.0"
           headline="🚀 Hello world"
