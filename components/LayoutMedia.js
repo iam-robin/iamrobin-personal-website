@@ -47,7 +47,7 @@ const LayoutMedia = ({ children }) => {
                   className={"font-mono text-xl mr-6 inline-block text-grey-300 dark:text-grey-400"}
                 >
                   <RoughNotation
-                    type="box"
+                    type="underline"
                     show={activeRoute == mediaPage}
                     color={theme === 'dark' ? fullConfig.theme.colors.accent.dark : fullConfig.theme.colors.accent.light}
                     strokeWidth={2}
