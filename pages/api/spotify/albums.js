@@ -3,7 +3,7 @@ import { myAlbums } from "../../../lib/spotify";
 export default async function handler(req, res) {
 
   const limit = 50;
-  const maxItems = 200;
+  const maxItems = 250;
   let alldata = [];
 
   for (let i = limit; i <= maxItems; i += limit) {
