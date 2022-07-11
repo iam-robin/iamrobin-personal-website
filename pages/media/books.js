@@ -68,7 +68,7 @@ const Books = ({ books }) => {
 
 Books.layout = "LayoutMedia";
 
-export const getStaticProps = async () => {
+export async function getServerSideProps() {
   const notion = new Client({
     auth: process.env.NOTION_SECRET,
   })
@@ -123,8 +123,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       books,
-    },
-    revalidate: 60,
+    }
   }
 }
 
